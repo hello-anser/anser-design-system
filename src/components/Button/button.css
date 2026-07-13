@@ -1,0 +1,50 @@
+.anser-btn {
+  border: none;
+  border-radius: var(--anser-radius);
+  padding: 12px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  line-height: 1;
+  transition: filter 0.15s, background 0.15s;
+}
+.anser-btn--sm {
+  padding: 8px 12px;
+  font-size: 12.5px;
+}
+.anser-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.anser-btn:not(:disabled):hover {
+  filter: brightness(0.96);
+}
+
+.anser-btn--primary {
+  background: var(--anser-amber);
+  color: #1a1205;
+}
+.anser-btn--neutral {
+  background: var(--anser-neutral-btn-bg);
+  color: var(--anser-neutral-btn-text);
+}
+.anser-btn--ghost {
+  background: var(--anser-panel-2);
+  color: var(--anser-muted);
+  border: 1px solid var(--anser-line);
+}
+.anser-btn--danger {
+  background: var(--anser-red-soft);
+  color: var(--anser-red);
+  border: 1px solid color-mix(in srgb, var(--anser-red) 35%, transparent);
+}
+
+.anser-btn__icon {
+  display: inline-flex;
+  align-items: center;
+}

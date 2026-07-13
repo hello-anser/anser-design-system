@@ -1,0 +1,30 @@
+/* Root scope — AnserProvider renders .anser-root. Everything inside
+   inherits the brand type and theme surface. */
+
+.anser-root {
+  font-family: var(--anser-font-sans);
+  background: var(--anser-bg);
+  color: var(--anser-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+}
+.anser-root *,
+.anser-root *::before,
+.anser-root *::after {
+  box-sizing: inherit;
+}
+
+/* The instrument-marking idiom: tiny mono labels, letter-spaced,
+   uppercase. Used for section labels, table headers, stat captions. */
+.anser-label {
+  font-family: var(--anser-font-mono);
+  font-size: 10px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: var(--anser-faint);
+}
+
+.anser-mono {
+  font-family: var(--anser-font-mono);
+}

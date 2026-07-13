@@ -1,0 +1,93 @@
+/* ============================================================
+   Anser design tokens — "The Answer, Given"
+   Two colours plus neutrals, nothing more. Navy is the base,
+   amber is a scalpel, never a brush. Light is the default
+   theme; [data-theme="dark"] flips the canvas. Amber is
+   constant across both.
+   Source of truth: 17-CTO-Handover-and-Quickstart.md Part 6.1.
+   ============================================================ */
+
+:root {
+  /* Brand constants (identical in both themes) */
+  --anser-navy: #15233B;
+  --anser-amber: #F5A623;
+
+  /* Canvas & surfaces — light (default) */
+  --anser-bg: #F7F6F3;
+  --anser-panel: #FFFFFF;
+  --anser-panel-2: #F3F1EC;
+  --anser-panel-3: #EDEBE4;
+  --anser-line: #E7E4DD;
+
+  /* Text */
+  --anser-text: #1B2430;
+  --anser-muted: #5D6573;
+  --anser-faint: #8A91A0;
+
+  /* Accent derivatives */
+  --anser-amber-soft: rgba(245, 166, 35, 0.16);
+  --anser-amber-strong: #B3760E; /* text-safe amber on light surfaces */
+
+  /* Signals */
+  --anser-green: #3F9D6B;
+  --anser-red: #C5563F;
+  --anser-red-soft: rgba(197, 86, 63, 0.14);
+  --anser-steel: #6F86B8; /* the "transferred" outcome dot */
+
+  /* Sidebar */
+  --anser-sidebar-bg: #FFFFFF;
+  --anser-sidebar-card: #F4F2EC;
+  --anser-sidebar-input: #FFFFFF;
+  --anser-sidebar-line: #E7E4DD;
+  --anser-sidebar-text: #5D6573;
+  --anser-sidebar-strong: #15233B;
+  --anser-sidebar-faint: #9AA0AC;
+  --anser-sidebar-hover: #F3F1EC;
+
+  /* Chrome */
+  --anser-topbar-bg: rgba(247, 246, 243, 0.85);
+  --anser-neutral-btn-bg: #15233B;
+  --anser-neutral-btn-text: #FFFFFF;
+
+  /* Type */
+  --anser-font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+  --anser-font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Shape */
+  --anser-radius-sm: 8px;
+  --anser-radius: 10px;
+  --anser-radius-lg: 14px;
+  --anser-radius-pill: 20px;
+}
+
+[data-theme='dark'] {
+  --anser-bg: #0B1320;
+  --anser-panel: #111B2C;
+  --anser-panel-2: #16223A;
+  --anser-panel-3: #1B2942;
+  --anser-line: #243349;
+
+  --anser-text: #E9EDF4;
+  --anser-muted: #8A93A6;
+  --anser-faint: #5E6779;
+
+  --anser-amber-soft: rgba(245, 166, 35, 0.14);
+  --anser-amber-strong: #F5A623; /* full amber reads fine on dark */
+
+  --anser-green: #46B585;
+  --anser-red: #D35E48;
+  --anser-red-soft: rgba(211, 94, 72, 0.16);
+
+  --anser-sidebar-bg: #0A111D;
+  --anser-sidebar-card: #111B2C;
+  --anser-sidebar-input: #16223A;
+  --anser-sidebar-line: #1C2942;
+  --anser-sidebar-text: #AAB3C4;
+  --anser-sidebar-strong: #FFFFFF;
+  --anser-sidebar-faint: #6B7790;
+  --anser-sidebar-hover: #111B2C;
+
+  --anser-topbar-bg: rgba(11, 19, 32, 0.85);
+  --anser-neutral-btn-bg: #EEF1F6;
+  --anser-neutral-btn-text: #15233B;
+}
