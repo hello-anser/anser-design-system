@@ -7,6 +7,7 @@
   "cssEntry": "dist/anser.css",
   "docsDir": "docs",
   "readmeHeader": ".design-sync/conventions.md",
+  "guidelinesGlob": [],
   "provider": { "component": "AnserProvider" },
   "overrides": {
     "Table": { "cardMode": "column" },

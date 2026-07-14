@@ -12,7 +12,9 @@
 .anser-bar-chart__bar {
   flex: 1;
   min-height: 2px;
-  background: var(--anser-panel-3);
+  /* Faint-over-track mix: visible against both canvas and panel in either
+     theme, while staying quiet enough that the amber highlight is the hero. */
+  background: color-mix(in srgb, var(--anser-faint) 45%, var(--anser-panel-3));
   border-radius: 4px 4px 0 0;
 }
 
