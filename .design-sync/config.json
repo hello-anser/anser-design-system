@@ -4,5 +4,11 @@
   "shape": "package",
   "buildCmd": "npm run build",
   "cssEntry": "dist/anser.css",
-  "docsDir": "docs"
+  "docsDir": "docs",
+  "overrides": {
+    "Table": { "cardMode": "column" },
+    "Input": { "cardMode": "column" },
+    "Modal": { "cardMode": "single", "primaryStory": "ConfirmDelete", "viewport": "560x420" },
+    "Pipeline": { "cardMode": "column" }
+  }
 }

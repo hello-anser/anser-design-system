@@ -1,6 +1,10 @@
 .anser-modal {
   position: fixed;
   inset: 0;
+  /* A transformed ancestor turns fixed positioning container-relative and
+     collapses inset-derived height; the explicit viewport height keeps the
+     scrim and centering intact there (and is a no-op when fixed works). */
+  height: 100vh;
   z-index: 50;
   display: flex;
   align-items: center;
