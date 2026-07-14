@@ -1,0 +1,62 @@
+.anser-input {
+  display: block;
+  font-family: inherit;
+}
+
+.anser-input__label {
+  display: block;
+  margin-bottom: 7px;
+}
+
+.anser-input__field {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  background: var(--anser-panel-2);
+  border: 1px solid var(--anser-line);
+  border-radius: var(--anser-radius);
+  padding: 12px 14px;
+  font-size: 13px;
+  font-family: inherit;
+  color: var(--anser-text);
+  line-height: 1.4;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.anser-input__field::placeholder {
+  color: var(--anser-faint);
+}
+.anser-input__field:focus {
+  outline: none;
+  border-color: var(--anser-amber);
+  box-shadow: 0 0 0 3px var(--anser-amber-soft);
+}
+.anser-input__field:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.anser-input--mono .anser-input__field {
+  font-family: var(--anser-font-mono);
+}
+
+.anser-input--error .anser-input__field {
+  border-color: var(--anser-red);
+}
+.anser-input--error .anser-input__field:focus {
+  border-color: var(--anser-red);
+  box-shadow: 0 0 0 3px var(--anser-red-soft);
+}
+
+.anser-input__hint {
+  display: block;
+  margin-top: 6px;
+  font-size: 11px;
+  color: var(--anser-muted);
+}
+
+.anser-input__error {
+  display: block;
+  margin-top: 6px;
+  font-size: 11px;
+  color: var(--anser-red);
+}

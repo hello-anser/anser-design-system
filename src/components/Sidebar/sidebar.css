@@ -1,0 +1,99 @@
+.anser-sidebar {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-sizing: border-box;
+  background: var(--anser-sidebar-bg);
+  border-right: 1px solid var(--anser-sidebar-line);
+  font-family: var(--anser-font-sans);
+}
+
+.anser-sidebar__header {
+  flex: none;
+  padding: 20px 18px 16px;
+  border-bottom: 1px solid var(--anser-sidebar-line);
+}
+
+.anser-sidebar__nav {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 6px 12px 12px;
+}
+
+.anser-sidebar__footer {
+  flex: none;
+  padding: 8px 12px 12px;
+}
+
+.anser-sidebar-section__label {
+  font-family: var(--anser-font-mono);
+  font-size: 10px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: var(--anser-sidebar-faint);
+  margin: 18px 0 6px;
+  padding: 0 10px;
+}
+
+.anser-sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  width: 100%;
+  margin: 1px 0;
+  padding: 8px 10px 8px 7px;
+  border: none;
+  border-left: 3px solid transparent;
+  border-radius: var(--anser-radius-sm);
+  background: none;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.35;
+  text-align: left;
+  text-decoration: none;
+  color: var(--anser-sidebar-text);
+  cursor: pointer;
+  transition: background 0.12s, color 0.12s, border-color 0.12s;
+}
+.anser-sidebar-item:hover {
+  background: var(--anser-sidebar-hover);
+  color: var(--anser-sidebar-strong);
+}
+.anser-sidebar-item--active {
+  background: var(--anser-amber-soft);
+  border-left-color: var(--anser-amber);
+  color: var(--anser-sidebar-strong);
+}
+
+.anser-sidebar-item__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 16px;
+  height: 16px;
+  opacity: 0.85;
+}
+.anser-sidebar-item__icon svg {
+  width: 100%;
+  height: 100%;
+}
+.anser-sidebar-item--active .anser-sidebar-item__icon {
+  color: var(--anser-amber);
+  opacity: 1;
+}
+
+.anser-sidebar-item__label {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.anser-sidebar-item__badge {
+  flex: none;
+  margin-left: auto;
+}

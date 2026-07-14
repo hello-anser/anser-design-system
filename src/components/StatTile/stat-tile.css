@@ -1,0 +1,42 @@
+.anser-stat-tile {
+  background: var(--anser-panel);
+  border: 1px solid var(--anser-line);
+  border-radius: var(--anser-radius-lg);
+  padding: 20px;
+  font-family: var(--anser-font-sans);
+}
+
+.anser-stat-tile__label {
+  margin-bottom: 13px;
+}
+
+.anser-stat-tile__value {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -1px;
+  line-height: 1;
+  color: var(--anser-text);
+}
+.anser-stat-tile--emphasis .anser-stat-tile__value {
+  color: var(--anser-amber-strong);
+}
+
+.anser-stat-tile__delta,
+.anser-stat-tile__caption {
+  margin-top: 9px;
+  font-size: 11px;
+  color: var(--anser-muted);
+}
+.anser-stat-tile__delta + .anser-stat-tile__caption {
+  margin-top: 3px;
+}
+
+.anser-stat-tile__delta--up {
+  color: var(--anser-green);
+}
+.anser-stat-tile__delta--down {
+  color: var(--anser-red);
+}
+.anser-stat-tile__delta--neutral {
+  color: var(--anser-muted);
+}

@@ -1,0 +1,77 @@
+.anser-pipeline {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+}
+
+.anser-pipeline__step {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: var(--anser-panel-2);
+  border: 1px solid var(--anser-line);
+  border-radius: var(--anser-radius);
+  padding: 10px 12px;
+}
+
+.anser-pipeline__head {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  min-width: 0;
+}
+
+.anser-pipeline__label {
+  font-family: var(--anser-font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--anser-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.anser-pipeline__step--pending .anser-pipeline__label {
+  color: var(--anser-faint);
+}
+
+.anser-pipeline__detail {
+  font-family: var(--anser-font-mono);
+  font-size: 11px;
+  line-height: 1.4;
+  color: var(--anser-muted);
+  word-break: break-all;
+}
+.anser-pipeline__step--pending .anser-pipeline__detail {
+  color: var(--anser-faint);
+}
+
+.anser-pipeline__tick {
+  flex: none;
+  display: inline-flex;
+}
+
+.anser-pipeline__dot {
+  flex: none;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+.anser-pipeline__dot--active {
+  background: var(--anser-amber);
+}
+.anser-pipeline__dot--pending {
+  background: transparent;
+  border: 1.5px solid color-mix(in srgb, var(--anser-line) 60%, var(--anser-faint));
+}
+
+.anser-pipeline__link {
+  flex: none;
+  align-self: center;
+  display: inline-flex;
+  padding: 0 3px;
+  color: color-mix(in srgb, var(--anser-line) 55%, var(--anser-faint));
+}

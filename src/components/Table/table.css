@@ -1,0 +1,44 @@
+.anser-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: inherit;
+  font-size: 13px;
+  color: var(--anser-text);
+}
+
+/* Header cells ride on the .anser-label idiom (mono, 10px, letter-spaced,
+   uppercase, faint) — table.css only adds placement. */
+.anser-table__th {
+  text-align: left;
+  font-weight: 500;
+  padding: 0 14px 10px;
+  border-bottom: 1px solid var(--anser-line);
+}
+
+.anser-table__td {
+  padding: 13px 14px;
+  border-bottom: 1px solid var(--anser-line);
+  vertical-align: middle;
+}
+
+/* No outer border: the host Card frames the table, so the last hairline goes. */
+.anser-table__row:last-child .anser-table__td {
+  border-bottom: none;
+}
+
+.anser-table__th--right,
+.anser-table__td--right {
+  text-align: right;
+}
+
+.anser-table__td--right {
+  font-variant-numeric: tabular-nums;
+}
+
+.anser-table--compact .anser-table__th {
+  padding: 0 10px 8px;
+}
+
+.anser-table--compact .anser-table__td {
+  padding: 10px;
+}

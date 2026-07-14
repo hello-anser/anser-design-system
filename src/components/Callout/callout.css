@@ -1,0 +1,49 @@
+.anser-callout {
+  background: var(--anser-panel-2);
+  border: 1px solid var(--anser-line);
+  border-left: 3px solid var(--anser-faint);
+  border-radius: var(--anser-radius);
+  padding: 12px 14px;
+  font-family: inherit;
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--anser-muted);
+}
+
+.anser-callout__title {
+  font-weight: 600;
+  color: var(--anser-text);
+  margin-bottom: 3px;
+}
+
+.anser-callout__body {
+  min-width: 0;
+}
+
+/* Tones: soft wash, matching hairline, tone-strong rule and title. */
+.anser-callout--success {
+  background: color-mix(in srgb, var(--anser-green) 10%, transparent);
+  border-color: color-mix(in srgb, var(--anser-green) 30%, transparent);
+  border-left-color: var(--anser-green);
+}
+.anser-callout--success .anser-callout__title {
+  color: var(--anser-green);
+}
+
+.anser-callout--warning {
+  background: var(--anser-amber-soft);
+  border-color: color-mix(in srgb, var(--anser-amber) 35%, transparent);
+  border-left-color: var(--anser-amber);
+}
+.anser-callout--warning .anser-callout__title {
+  color: var(--anser-amber-strong);
+}
+
+.anser-callout--danger {
+  background: var(--anser-red-soft);
+  border-color: color-mix(in srgb, var(--anser-red) 30%, transparent);
+  border-left-color: var(--anser-red);
+}
+.anser-callout--danger .anser-callout__title {
+  color: var(--anser-red);
+}

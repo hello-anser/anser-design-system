@@ -1,0 +1,8 @@
+{
+  "pkg": "@anser/ui",
+  "globalName": "AnserUI",
+  "shape": "package",
+  "buildCmd": "npm run build",
+  "cssEntry": "dist/anser.css",
+  "docsDir": "docs"
+}

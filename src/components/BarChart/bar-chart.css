@@ -1,0 +1,36 @@
+.anser-bar-chart {
+  width: 100%;
+}
+
+.anser-bar-chart__bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 9px;
+  padding-top: 6px;
+}
+
+.anser-bar-chart__bar {
+  flex: 1;
+  min-height: 2px;
+  background: var(--anser-panel-3);
+  border-radius: 4px 4px 0 0;
+}
+
+.anser-bar-chart__bar--highlight {
+  background: var(--anser-amber);
+}
+
+.anser-bar-chart__x {
+  display: flex;
+  gap: 9px;
+  margin-top: 8px;
+}
+
+.anser-bar-chart__x-label {
+  flex: 1;
+  min-width: 0;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

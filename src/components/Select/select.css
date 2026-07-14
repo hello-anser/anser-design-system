@@ -1,0 +1,73 @@
+.anser-select {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-family: var(--anser-font-sans);
+  min-width: 0;
+}
+
+.anser-select__label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--anser-text);
+}
+
+.anser-select__control {
+  position: relative;
+  display: block;
+}
+
+.anser-select__field {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  background: var(--anser-panel-2);
+  border: 1px solid var(--anser-line);
+  border-radius: var(--anser-radius);
+  padding: 12px 36px 12px 14px;
+  font-size: 13px;
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--anser-text);
+  cursor: pointer;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.anser-select__field:focus {
+  outline: none;
+  border-color: var(--anser-amber);
+  box-shadow: 0 0 0 3px var(--anser-amber-soft);
+}
+
+.anser-select__field:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.anser-select__chevron {
+  position: absolute;
+  right: 13px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--anser-muted);
+}
+
+.anser-select--error .anser-select__field {
+  border-color: var(--anser-red);
+}
+
+.anser-select--error .anser-select__field:focus {
+  box-shadow: 0 0 0 3px var(--anser-red-soft);
+}
+
+.anser-select__hint {
+  font-size: 11.5px;
+  color: var(--anser-faint);
+}
+
+.anser-select__error {
+  font-size: 11.5px;
+  color: var(--anser-red);
+}
