@@ -32,6 +32,7 @@
 }
 .anser-input__field:disabled {
   opacity: 0.55;
+  background: var(--anser-panel-3);
   cursor: not-allowed;
 }
 

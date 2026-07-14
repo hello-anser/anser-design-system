@@ -6,7 +6,9 @@
 }
 
 .anser-pipeline__step {
-  flex: 1 0 auto;
+  /* Shrinkable but floored: without the floor six steps collapse to
+     letter-stacked slivers; without shrink they overflow narrow panels. */
+  flex: 1 1 auto;
   min-width: 104px;
   max-width: 220px;
   display: flex;

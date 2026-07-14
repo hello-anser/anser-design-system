@@ -55,7 +55,7 @@ const CardIcon = () => (
 );
 
 const frame: CSSProperties = {
-  height: 520,
+  height: 660,
   display: 'flex',
   border: '1px solid var(--anser-line)',
   borderRadius: 'var(--anser-radius-lg)',

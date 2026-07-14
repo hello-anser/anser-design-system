@@ -1,14 +1,17 @@
 {
   "pkg": "@anser/ui",
+  "projectId": "fc5c9ef7-a795-43b0-9f3b-3fbd5d2153e9",
   "globalName": "AnserUI",
   "shape": "package",
   "buildCmd": "npm run build",
   "cssEntry": "dist/anser.css",
   "docsDir": "docs",
+  "readmeHeader": ".design-sync/conventions.md",
+  "provider": { "component": "AnserProvider" },
   "overrides": {
     "Table": { "cardMode": "column" },
     "Input": { "cardMode": "column" },
-    "Modal": { "cardMode": "single", "primaryStory": "ConfirmDelete", "viewport": "560x420" },
+    "Modal": { "cardMode": "single", "primaryStory": "ConfirmDelete", "viewport": "560x560" },
     "Pipeline": { "cardMode": "column" }
   }
 }

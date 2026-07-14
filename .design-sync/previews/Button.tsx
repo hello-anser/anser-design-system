@@ -12,8 +12,7 @@ export const Variants = () => (
 export const Sizes = () => (
   <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
     <Button variant="neutral" size="md">Book appointment</Button>
-    <Button variant="neutral" size="sm">Reschedule</Button>
-    <Button variant="ghost" size="sm">View transcript</Button>
+    <Button variant="neutral" size="sm">Book appointment</Button>
   </div>
 );
 
