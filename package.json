@@ -24,6 +24,7 @@
   ],
   "scripts": {
     "build": "node scripts/build.mjs",
+    "prepare": "node scripts/build.mjs",
     "typecheck": "tsc --noEmit"
   },
   "peerDependencies": {
