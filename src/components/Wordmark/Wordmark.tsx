@@ -1,58 +1,55 @@
+import markDark from '../../assets/logo/anser-mark-darkmode.svg';
+import markLight from '../../assets/logo/anser-mark-navy.svg';
+import wordmarkDark from '../../assets/logo/anser-wordmark-reversed.svg';
+import wordmarkLight from '../../assets/logo/anser-wordmark-primary.svg';
+
+/** The supplied files' own proportions (their viewBox), width over height. */
+export const WORDMARK_ASPECT = 4339.9 / 818.6;
+export const MARK_ASPECT = 1147.9 / 816.4;
+/** Below this width the brand places the mark, not the wordmark. */
+export const WORDMARK_MIN_WIDTH = 96;
+
 export interface WordmarkProps {
   /**
-   * `wordmark` is the lowercase `anser.` with the amber stop. `icon` is the
-   * standalone app icon (navy speech bubble, amber dot). `lockup` places the
-   * icon beside the wordmark.
+   * `wordmark` places the supplied wordmark file, or the mark when it would
+   * be narrower than 96px. `icon` always places the mark. `lockup` is the
+   * June name for the wordmark and renders exactly the same: the brand puts
+   * no words and no second device inside the lockup.
    */
   variant?: 'wordmark' | 'icon' | 'lockup';
-  /** Pixel height of the mark. The wordmark scales its type from this. */
+  /** Pixel height of the logo. Its width follows the file's proportions. */
   size?: number;
-  /** Optional mono sub-label under the wordmark, e.g. "EVERY CALL, ANSWERED". */
+  /**
+   * @deprecated Ignored since BO-411: the brand puts no words inside the
+   * lockup, so nothing renders it. Still accepted so a June call site
+   * compiles; removed in the release that removes the `--anser-*` aliases.
+   */
   sub?: string;
   className?: string;
 }
 
 /**
- * The Anser brand mark. Lowercase `anser.` — the full stop is the fixed
- * brand device (the answer, given) and is always amber. Never recolour it,
- * never remove it.
+ * The Anser logo. Places Samir's supplied SVG files (brand pack v1.1) and
+ * never retypes the name: the primary file on light, the reversed file on
+ * dark, and the mark instead of the wordmark below 96px wide. Never
+ * recolour, redraw or add words to it.
  */
-export function Wordmark({ variant = 'wordmark', size = 28, sub, className }: WordmarkProps) {
-  const icon = (
-    <svg
-      className="anser-wordmark__icon"
-      width={size}
-      height={size}
-      viewBox="0 0 96 96"
-      aria-hidden="true"
-    >
-      <rect x="4" y="8" width="88" height="72" rx="20" fill="var(--anser-navy)" />
-      <path d="M24 80 L24 94 L40 80 Z" fill="var(--anser-navy)" />
-      <circle cx="48" cy="44" r="10" fill="var(--anser-amber)" />
-    </svg>
-  );
-
-  if (variant === 'icon') {
-    return (
-      <span className={['anser-wordmark', className].filter(Boolean).join(' ')} role="img" aria-label="Anser">
-        {icon}
-      </span>
-    );
-  }
-
-  const text = (
-    <span className="anser-wordmark__stack">
-      <span className="anser-wordmark__text" style={{ fontSize: size }}>
-        anser<span className="anser-wordmark__stop">.</span>
-      </span>
-      {sub != null && <span className="anser-wordmark__sub">{sub}</span>}
-    </span>
-  );
+export function Wordmark({ variant = 'wordmark', size = 28, className }: WordmarkProps) {
+  const useMark = variant === 'icon' || size * WORDMARK_ASPECT < WORDMARK_MIN_WIDTH;
+  const [light, dark, aspect] = useMark
+    ? [markLight, markDark, MARK_ASPECT]
+    : [wordmarkLight, wordmarkDark, WORDMARK_ASPECT];
+  const width = Math.round(size * aspect * 10) / 10;
+  const src = (base64: string) => `data:image/svg+xml;base64,${base64}`;
 
   return (
-    <span className={['anser-wordmark', className].filter(Boolean).join(' ')} role="img" aria-label="Anser">
-      {variant === 'lockup' && icon}
-      {text}
+    <span
+      className={['anser-wordmark', useMark && 'anser-wordmark--mark', className].filter(Boolean).join(' ')}
+      role="img"
+      aria-label="Anser"
+    >
+      <img className="anser-wordmark__on-light" src={src(light)} alt="" width={width} height={size} />
+      <img className="anser-wordmark__on-dark" src={src(dark)} alt="" width={width} height={size} />
     </span>
   );
 }

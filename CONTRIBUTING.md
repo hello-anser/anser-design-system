@@ -23,11 +23,13 @@ Register exports in `src/index.ts`: `export { <Name> } from …` and `export typ
 ## Styling contract
 
 - Class names: `anser-<block>`, modifiers `anser-<block>--<mod>`, elements `anser-<block>__<part>`. Plain CSS, no preprocessor, no nesting.
-- **Colours only via `var(--anser-*)` tokens** (see `src/styles/tokens.css`). Never a hex literal — the token set is how dark theme works. The two exceptions already blessed: `#1a1205` for text on amber, and `color-mix` derivatives of a token.
-- Amber (`--anser-amber`) appears only where meaning concentrates: the primary action, the active nav item, the one number that matters. When in doubt, use a neutral.
-- Big numbers use the sans at 700/tight tracking; captions and micro-labels use the `.anser-label` idiom (mono, 10px, letter-spaced, uppercase) — that pairing of vast figure and hairline annotation is the brand's signature rhythm.
-- Radii from tokens: inputs/buttons `--anser-radius` (10px), panels `--anser-radius-lg` (14px), pills `--anser-radius-pill`.
-- Both themes must look right. Tokens do most of it; if a rule needs a theme-specific value, add a token to `tokens.css` (orchestrator only), don't write `[data-theme]` selectors in component CSS.
+- **Colours only via the semantic `var(--a-*)` tokens** (see `src/styles/tokens.css`, Part A, Samir's brand pack v1.1). Never a hex literal and never a palette name (`--anser-ink`, `--anser-blue`) in a component — the semantic layer is how dark theme works. The one blessed exception: `color-mix` derivatives of a token. The June `--anser-*` colour names are aliases for one release (README, "Old token names"); do not write new code against them.
+- Anser Blue (`--a-accent`) is for fills and marks only, on the one thing that matters, under a tenth of any screen. Blue is never text on a light surface; links use `--a-text-link`. The primary button is blue with `--a-text-on-accent` ink text in both themes, never white on blue.
+- Type is Figtree only, from the `--anser-size-*` scale (13px is the floor). Sentence case everywhere: no uppercase micro-labels, no letter-spaced captions. `.anser-label` is a sentence-case fine label.
+- Radii from tokens: tags `--anser-radius-sm` (6px), buttons and inputs `--anser-radius-md` (12px), cards and panels `--anser-radius-lg` (20px), status pills only `--anser-radius-pill`.
+- The logo is placed from the supplied files in `src/assets/logo/`, never retyped or recoloured; swap a file, never edit its paths.
+- Both themes must look right. Tokens do most of it; if a rule needs a theme-specific value, add a token to `tokens.css` Part B (orchestrator only), don't write `[data-theme]` selectors in component CSS.
+- `npm test` must stay green: it asserts every `--a-*` token has a dark partner, every old name resolves, the primary button's colours, and that `Wordmark` places the supplied files.
 
 ## Docs contract (`docs/<Name>.md`)
 

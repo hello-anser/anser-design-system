@@ -1,7 +1,7 @@
 {
   "name": "@anser/ui",
   "version": "0.1.0",
-  "description": "Anser design system — React components for the Anser product. Navy plus amber, the full-stop device, light and dark themes. The answer, given.",
+  "description": "Anser design system \u2014 React components for the Anser product. Brand pack v1.1: ink and Anser Blue, Figtree, Samir's supplied logo files, light and dark themes.",
   "license": "UNLICENSED",
   "type": "module",
   "main": "dist/index.js",
@@ -25,15 +25,15 @@
   "scripts": {
     "build": "node scripts/build.mjs",
     "prepare": "node scripts/build.mjs",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test": "node scripts/build.mjs && node --test tests/*.test.mjs"
   },
   "peerDependencies": {
     "react": ">=18",
     "react-dom": ">=18"
   },
   "devDependencies": {
-    "@fontsource/inter": "^5.2.5",
-    "@fontsource/jetbrains-mono": "^5.2.5",
+    "@fontsource/figtree": "^5.3.0",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "esbuild": "^0.25.0",

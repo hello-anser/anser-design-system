@@ -1,52 +1,35 @@
-/* Inter (sans) and JetBrains Mono — self-hosted, latin subset.
+/* Figtree, the brand's one family (BO-411; Inter and JetBrains Mono retired).
+   Self-hosted, latin subset, the four weights the brand uses.
    URLs are relative to the compiled dist/anser.css. */
 
 @font-face {
-  font-family: 'Inter';
+  font-family: 'Figtree';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('./fonts/inter-latin-400-normal.woff2') format('woff2');
+  src: url('./fonts/figtree-latin-400-normal.woff2') format('woff2');
 }
+
 @font-face {
-  font-family: 'Inter';
+  font-family: 'Figtree';
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url('./fonts/inter-latin-500-normal.woff2') format('woff2');
+  src: url('./fonts/figtree-latin-500-normal.woff2') format('woff2');
 }
+
 @font-face {
-  font-family: 'Inter';
+  font-family: 'Figtree';
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url('./fonts/inter-latin-600-normal.woff2') format('woff2');
+  src: url('./fonts/figtree-latin-600-normal.woff2') format('woff2');
 }
+
 @font-face {
-  font-family: 'Inter';
+  font-family: 'Figtree';
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url('./fonts/inter-latin-700-normal.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 800;
-  font-display: swap;
-  src: url('./fonts/inter-latin-800-normal.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'JetBrains Mono';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url('./fonts/jetbrains-mono-latin-400-normal.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'JetBrains Mono';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url('./fonts/jetbrains-mono-latin-500-normal.woff2') format('woff2');
+  src: url('./fonts/figtree-latin-700-normal.woff2') format('woff2');
 }
