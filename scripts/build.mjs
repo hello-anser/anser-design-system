@@ -19,9 +19,12 @@ await build({
   external: ['react', 'react-dom', 'react/jsx-runtime'],
   jsx: 'automatic',
   target: 'es2020',
-  // The supplied logo files go into the bundle byte for byte, as data URLs,
-  // so Wordmark needs no asset path in the consuming app (BO-411).
-  loader: { '.svg': 'dataurl' },
+  // The supplied logo files go into the bundle byte for byte, base64, and
+  // Wordmark wraps them as data URLs, so it needs no asset path in the
+  // consuming app (BO-411). Base64 rather than esbuild's `dataurl`, whose
+  // percent-encoding puts `%` signs and fragments of path data into the
+  // page's HTML, where a copy check reads them as words.
+  loader: { '.svg': 'base64' },
 });
 
 // 2. Fonts — copy the woff2 files the @font-face rules in fonts.css reference

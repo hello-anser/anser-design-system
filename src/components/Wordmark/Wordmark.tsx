@@ -40,6 +40,7 @@ export function Wordmark({ variant = 'wordmark', size = 28, className }: Wordmar
     ? [markLight, markDark, MARK_ASPECT]
     : [wordmarkLight, wordmarkDark, WORDMARK_ASPECT];
   const width = Math.round(size * aspect * 10) / 10;
+  const src = (base64: string) => `data:image/svg+xml;base64,${base64}`;
 
   return (
     <span
@@ -47,8 +48,8 @@ export function Wordmark({ variant = 'wordmark', size = 28, className }: Wordmar
       role="img"
       aria-label="Anser"
     >
-      <img className="anser-wordmark__on-light" src={light} alt="" width={width} height={size} />
-      <img className="anser-wordmark__on-dark" src={dark} alt="" width={width} height={size} />
+      <img className="anser-wordmark__on-light" src={src(light)} alt="" width={width} height={size} />
+      <img className="anser-wordmark__on-dark" src={src(dark)} alt="" width={width} height={size} />
     </span>
   );
 }

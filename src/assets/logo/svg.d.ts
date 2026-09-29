@@ -1,6 +1,6 @@
-/* The build inlines each supplied logo file as a data URL (esbuild's
-   `dataurl` loader, scripts/build.mjs), so importing one yields its src. */
+/* The build inlines each supplied logo file as base64 (esbuild's `base64`
+   loader, scripts/build.mjs); Wordmark wraps it as a data URL. */
 declare module '*.svg' {
-  const src: string;
-  export default src;
+  const base64: string;
+  export default base64;
 }
