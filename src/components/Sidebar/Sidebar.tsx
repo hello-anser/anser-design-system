@@ -4,8 +4,8 @@ import { Wordmark } from '../Wordmark/Wordmark';
 
 export interface SidebarProps extends HTMLAttributes<HTMLElement> {
   /**
-   * Slot above the nav. Defaults to the Anser wordmark at 22px with the
-   * "AI RECEPTIONIST" sub-label; pass `null` to render no header at all.
+   * Slot above the nav. Defaults to the Anser wordmark at 22px; pass
+   * `null` to render no header at all.
    */
   header?: ReactNode;
   /**
@@ -34,7 +34,7 @@ export function Sidebar({
   ...rest
 }: SidebarProps) {
   const headerContent =
-    header === undefined ? <Wordmark size={22} sub="AI RECEPTIONIST" /> : header;
+    header === undefined ? <Wordmark size={22} /> : header;
 
   return (
     <aside

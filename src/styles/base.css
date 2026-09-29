@@ -2,9 +2,11 @@
    inherits the brand type and theme surface. */
 
 .anser-root {
-  font-family: var(--anser-font-sans);
-  background: var(--anser-bg);
-  color: var(--anser-text);
+  font-family: var(--anser-font);
+  font-size: var(--anser-size-body);
+  line-height: var(--anser-leading-body);
+  background: var(--a-surface);
+  color: var(--a-text);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   box-sizing: border-box;
@@ -15,16 +17,21 @@
   box-sizing: inherit;
 }
 
-/* The instrument-marking idiom: tiny mono labels, letter-spaced,
-   uppercase. Used for section labels, table headers, stat captions. */
+/* A small label: sentence case, Figtree, the fine size, secondary ink.
+   This class used to be the June mono/uppercase/letter-spaced idiom; the
+   brand forbids all caps, so the idiom is gone and the class name stays
+   only because components and pages still carry it (BO-411). */
 .anser-label {
-  font-family: var(--anser-font-mono);
-  font-size: 10px;
-  letter-spacing: 1.4px;
-  text-transform: uppercase;
-  color: var(--anser-faint);
+  font-family: var(--anser-font);
+  font-size: var(--anser-size-fine);
+  font-weight: var(--anser-weight-medium);
+  line-height: var(--anser-leading-heading);
+  color: var(--a-text-secondary);
 }
 
+/* Figures that line up: times, prices, durations, phone numbers. The
+   brand's one family with tabular numerals, not a second typeface. */
 .anser-mono {
-  font-family: var(--anser-font-mono);
+  font-family: var(--anser-font);
+  font-variant-numeric: tabular-nums;
 }

@@ -19,17 +19,26 @@ await build({
   external: ['react', 'react-dom', 'react/jsx-runtime'],
   jsx: 'automatic',
   target: 'es2020',
+  // The supplied logo files go into the bundle byte for byte, as data URLs,
+  // so Wordmark needs no asset path in the consuming app (BO-411).
+  loader: { '.svg': 'dataurl' },
 });
 
 // 2. Fonts — copy the woff2 files the @font-face rules in fonts.css reference
 const fontFiles = [
-  ['@fontsource/inter', ['inter-latin-400-normal.woff2', 'inter-latin-500-normal.woff2', 'inter-latin-600-normal.woff2', 'inter-latin-700-normal.woff2', 'inter-latin-800-normal.woff2']],
-  ['@fontsource/jetbrains-mono', ['jetbrains-mono-latin-400-normal.woff2', 'jetbrains-mono-latin-500-normal.woff2']],
+  ['@fontsource/figtree', [400, 500, 600, 700].map((w) => `figtree-latin-${w}-normal.woff2`)],
 ];
 for (const [pkg, files] of fontFiles) {
   for (const f of files) {
     cpSync(join(root, 'node_modules', pkg, 'files', f), join(dist, 'fonts', f));
   }
+}
+
+// 2b. Logo files — Samir's `--a-logo` and `--a-mark` tokens name them
+// relative to dist/anser.css, so they ship beside it, unchanged.
+mkdirSync(join(dist, 'logo'), { recursive: true });
+for (const f of readdirSync(join(root, 'src/assets/logo'))) {
+  if (f.endsWith('.svg')) cpSync(join(root, 'src/assets/logo', f), join(dist, 'logo', f));
 }
 
 // 3. CSS — tokens, fonts, base, then every component stylesheet, concatenated.

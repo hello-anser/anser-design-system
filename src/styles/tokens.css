@@ -1,93 +1,284 @@
 /* ============================================================
-   Anser design tokens — "The Answer, Given"
-   Two colours plus neutrals, nothing more. Navy is the base,
-   amber is a scalpel, never a brush. Light is the default
-   theme; [data-theme="dark"] flips the canvas. Amber is
-   constant across both.
-   Source of truth: 17-CTO-Handover-and-Quickstart.md Part 6.1.
+   @anser/ui tokens, v2 (BO-411, 2026-09-29).
+
+   Part A below is Samir's brand pack file, `anser-tokens.css`
+   v1.1 (delivered 2026-09-15), copied verbatim from the top of
+   the file down to its "COMPONENT EXAMPLES" section, plus his
+   reduced-motion rule. His examples are not copied: the
+   components carry their own styles. The logo files his
+   `--a-logo` and `--a-mark` point at ship beside this sheet
+   in dist/logo/. Do not edit a value in Part A; a value that
+   fails in practice is reported to Samir, not changed here.
+
+   Part B is ours: the explicit-light partner, the two logo
+   display switches, and the old `--anser-*` names aliased onto
+   the new semantic tokens for one release (the list is in
+   README.md, "Old token names").
    ============================================================ */
 
+/* ------------------------------------------------ PART A: SAMIR, v1.1 */
+
+/* ==========================================================================
+   Anser design tokens
+   Version 1.1 — paired light/dark colour, type, spacing, shape
+
+   Two layers:
+     1. PALETTE   raw brand colours. Never reference these in a component.
+     2. SEMANTIC  --a-surface, --a-text, --a-accent … these flip with the
+                  theme. Components use only these.
+
+   Dark mode switches on either signal: an explicit data-theme="dark" on a
+   parent, or the operating system preference. Nothing else changes.
+   ========================================================================== */
+
 :root {
-  /* Brand constants (identical in both themes) */
-  --anser-navy: #15233B;
-  --anser-amber: #F5A623;
+  /* ---------------------------------------------------------------- 1. PALETTE */
+  --anser-ink:         #0A0A2E;
+  --anser-ink-raised:  #15173A;
+  --anser-ink-sunken:  #06061F;
+  --anser-blue:        #1AA7FE;
+  --anser-blue-deep:   #0B6FC4;
+  --anser-blue-light:  #4FBDFF;
+  --anser-blue-wash:   #E8F5FF;
+  --anser-blue-shade:  #10203F;
+  --anser-paper:       #FFFFFF;
+  --anser-cloud:       #F5F7FB;
+  --anser-slate:       #4A4C68;
+  --anser-slate-light: #A7AEC9;
+  --anser-mist:        #E4E8F0;
+  --anser-mist-dark:   #2A2C4E;
+  --anser-booked:      #0B7A57;
+  --anser-booked-dark: #2BC08F;
+  --anser-missed:      #C6421F;
+  --anser-missed-dark: #F2704A;
 
-  /* Canvas & surfaces — light (default) */
-  --anser-bg: #F7F6F3;
-  --anser-panel: #FFFFFF;
-  --anser-panel-2: #F3F1EC;
-  --anser-panel-3: #EDEBE4;
-  --anser-line: #E7E4DD;
+  /* ------------------------------------------------- 2. SEMANTIC — light mode */
+  --a-surface:          var(--anser-paper);   /* page background              */
+  --a-surface-raised:   var(--anser-cloud);   /* cards, panels, table stripes */
+  --a-surface-sunken:   var(--anser-cloud);   /* wells, inputs, code blocks   */
 
-  /* Text */
-  --anser-text: #1B2430;
-  --anser-muted: #5D6573;
-  --anser-faint: #8A91A0;
+  --a-text:             var(--anser-ink);        /* 19.2:1 on surface */
+  --a-text-secondary:   var(--anser-slate);      /*  8.3:1 on surface */
+  --a-text-on-accent:   var(--anser-ink);        /*  7.3:1 on accent  */
+  --a-text-link:        var(--anser-blue-deep);  /*  5.1:1 on surface */
 
-  /* Accent derivatives */
-  --anser-amber-soft: rgba(245, 166, 35, 0.16);
-  --anser-amber-strong: #B3760E; /* text-safe amber on light surfaces */
+  --a-accent:           var(--anser-blue);       /* fills and marks only */
+  --a-accent-wash:      var(--anser-blue-wash);
+  --a-border:           var(--anser-mist);
+  --a-border-strong:    var(--anser-slate);
 
-  /* Signals */
-  --anser-green: #3F9D6B;
-  --anser-red: #C5563F;
-  --anser-red-soft: rgba(197, 86, 63, 0.14);
-  --anser-steel: #6F86B8; /* the "transferred" outcome dot */
+  --a-status-answered:  var(--anser-blue);
+  --a-status-booked:    var(--anser-booked);
+  --a-status-missed:    var(--anser-missed);
 
-  /* Sidebar */
-  --anser-sidebar-bg: #FFFFFF;
-  --anser-sidebar-card: #F4F2EC;
-  --anser-sidebar-input: #FFFFFF;
-  --anser-sidebar-line: #E7E4DD;
-  --anser-sidebar-text: #5D6573;
-  --anser-sidebar-strong: #15233B;
-  --anser-sidebar-faint: #9AA0AC;
-  --anser-sidebar-hover: #F3F1EC;
+  --a-elevation: 0 1px 2px rgba(10, 10, 46, 0.06),
+                 0 8px 24px rgba(10, 10, 46, 0.06);
+  --a-focus: 0 0 0 3px rgba(26, 167, 254, 0.45);
+  --a-logo: url("logo/anser-wordmark-primary.svg");
+  --a-mark: url("logo/anser-mark-navy.svg");
 
-  /* Chrome */
-  --anser-topbar-bg: rgba(247, 246, 243, 0.85);
-  --anser-neutral-btn-bg: #15233B;
-  --anser-neutral-btn-text: #FFFFFF;
+  /* ------------------------------------------------------------------ 3. TYPE */
+  --anser-font: "Figtree", "Helvetica Neue", Arial, sans-serif;
 
-  /* Type */
-  --anser-font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
-  --anser-font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --anser-size-display: 3.75rem;   /* 60px — page heroes only  */
+  --anser-size-h1:      2.75rem;   /* 44px */
+  --anser-size-h2:      2.125rem;  /* 34px */
+  --anser-size-h3:      1.6875rem; /* 27px */
+  --anser-size-h4:      1.3125rem; /* 21px */
+  --anser-size-lead:    1.3125rem; /* 21px */
+  --anser-size-body:    1.0625rem; /* 17px */
+  --anser-size-small:   0.9375rem; /* 15px */
+  --anser-size-fine:    0.8125rem; /* 13px — floor, never smaller */
 
-  /* Shape */
-  --anser-radius-sm: 8px;
-  --anser-radius: 10px;
-  --anser-radius-lg: 14px;
-  --anser-radius-pill: 20px;
+  --anser-weight-regular: 400;
+  --anser-weight-medium:  500;
+  --anser-weight-semi:    600;
+  --anser-weight-bold:    700;
+
+  --anser-leading-display: 1.05;
+  --anser-leading-heading: 1.15;
+  --anser-leading-body:    1.55;
+
+  --anser-tracking-display: -0.03em;
+  --anser-tracking-heading: -0.02em;
+  --anser-tracking-body:     0;
+
+  /* --------------------------------------------------------------- 4. SPACING
+     4px base. Use a step, never an arbitrary number. */
+  --anser-space-1:   0.25rem;  /*  4px  icon to label            */
+  --anser-space-2:   0.5rem;   /*  8px  inside a pill            */
+  --anser-space-3:   0.75rem;  /* 12px  stacked form rows        */
+  --anser-space-4:   1rem;     /* 16px  default gap              */
+  --anser-space-6:   1.5rem;   /* 24px  card padding             */
+  --anser-space-8:   2rem;     /* 32px  between cards            */
+  --anser-space-12:  3rem;     /* 48px  between blocks           */
+  --anser-space-16:  4rem;     /* 64px  section padding, mobile  */
+  --anser-space-24:  6rem;     /* 96px  section padding, desktop */
+
+  /* ----------------------------------------------------------------- 5. SHAPE */
+  --anser-radius-sm:   6px;    /* tags, small chips              */
+  --anser-radius-md:   12px;   /* buttons, inputs, selects       */
+  --anser-radius-lg:   20px;   /* cards, panels, modals          */
+  --anser-radius-pill: 999px;  /* status pills only              */
+  --anser-radius-icon: 22.5%;  /* app icon squircle, of its size */
+  --anser-border-width: 1px;
+  --anser-border-width-strong: 1.5px;  /* secondary button outline */
+
+  /* ---------------------------------------------------------------- 6. MOTION */
+  --anser-ease: cubic-bezier(0.2, 0, 0, 1);
+  --anser-duration: 180ms;
 }
 
-[data-theme='dark'] {
-  --anser-bg: #0B1320;
-  --anser-panel: #111B2C;
-  --anser-panel-2: #16223A;
-  --anser-panel-3: #1B2942;
-  --anser-line: #243349;
+/* ============================================================= DARK MODE ==
+   Every semantic token above has a partner below. A colour with no partner
+   here is not allowed in the product. */
 
-  --anser-text: #E9EDF4;
-  --anser-muted: #8A93A6;
-  --anser-faint: #5E6779;
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --a-surface:         var(--anser-ink);
+    --a-surface-raised:  var(--anser-ink-raised);
+    --a-surface-sunken:  var(--anser-ink-sunken);
 
-  --anser-amber-soft: rgba(245, 166, 35, 0.14);
-  --anser-amber-strong: #F5A623; /* full amber reads fine on dark */
+    --a-text:            #F4F6FC;                  /* 17.7:1 on surface */
+    --a-text-secondary:  var(--anser-slate-light); /*  8.7:1 on surface */
+    --a-text-on-accent:  var(--anser-ink);         /*  7.3:1 — unchanged */
+    --a-text-link:       var(--anser-blue-light);  /*  9.2:1 on surface */
 
-  --anser-green: #46B585;
-  --anser-red: #D35E48;
-  --anser-red-soft: rgba(211, 94, 72, 0.16);
+    --a-accent:          var(--anser-blue);        /*  7.3:1 — unchanged */
+    --a-accent-wash:     var(--anser-blue-shade);
+    --a-border:          var(--anser-mist-dark);
+    --a-border-strong:   var(--anser-slate-light);
 
-  --anser-sidebar-bg: #0A111D;
-  --anser-sidebar-card: #111B2C;
-  --anser-sidebar-input: #16223A;
-  --anser-sidebar-line: #1C2942;
-  --anser-sidebar-text: #AAB3C4;
-  --anser-sidebar-strong: #FFFFFF;
-  --anser-sidebar-faint: #6B7790;
-  --anser-sidebar-hover: #111B2C;
+    --a-status-answered: var(--anser-blue);
+    --a-status-booked:   var(--anser-booked-dark);
+    --a-status-missed:   var(--anser-missed-dark);
 
-  --anser-topbar-bg: rgba(11, 19, 32, 0.85);
-  --anser-neutral-btn-bg: #EEF1F6;
-  --anser-neutral-btn-text: #15233B;
+    /* Shadows do not read on dark. Surfaces are separated by border. */
+    --a-elevation: 0 0 0 1px var(--anser-mist-dark);
+    --a-focus: 0 0 0 3px rgba(26, 167, 254, 0.6);
+    --a-logo: url("logo/anser-wordmark-reversed.svg");
+    --a-mark: url("logo/anser-mark-darkmode.svg");
+  }
+}
+
+[data-theme="dark"] {
+  --a-surface:         var(--anser-ink);
+  --a-surface-raised:  var(--anser-ink-raised);
+  --a-surface-sunken:  var(--anser-ink-sunken);
+  --a-text:            #F4F6FC;
+  --a-text-secondary:  var(--anser-slate-light);
+  --a-text-on-accent:  var(--anser-ink);
+  --a-text-link:       var(--anser-blue-light);
+  --a-accent:          var(--anser-blue);
+  --a-accent-wash:     var(--anser-blue-shade);
+  --a-border:          var(--anser-mist-dark);
+  --a-border-strong:   var(--anser-slate-light);
+  --a-status-answered: var(--anser-blue);
+  --a-status-booked:   var(--anser-booked-dark);
+  --a-status-missed:   var(--anser-missed-dark);
+  --a-elevation: 0 0 0 1px var(--anser-mist-dark);
+  --a-focus: 0 0 0 3px rgba(26, 167, 254, 0.6);
+  --a-logo: url("logo/anser-wordmark-reversed.svg");
+  --a-mark: url("logo/anser-mark-darkmode.svg");
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --anser-duration: 1ms; }
+}
+
+/* ------------------------------------------------ PART B: @anser/ui */
+
+/* An explicit light theme wins over the operating system's dark
+   preference. Samir's dark media rule already stands down on a root
+   stamped light; this is the same promise for an AnserProvider that
+   says theme="light" under a root that says nothing. Values are Part A's
+   light ones, unchanged. */
+[data-theme="light"] {
+  --a-surface:          var(--anser-paper);
+  --a-surface-raised:   var(--anser-cloud);
+  --a-surface-sunken:   var(--anser-cloud);
+  --a-text:             var(--anser-ink);
+  --a-text-secondary:   var(--anser-slate);
+  --a-text-on-accent:   var(--anser-ink);
+  --a-text-link:        var(--anser-blue-deep);
+  --a-accent:           var(--anser-blue);
+  --a-accent-wash:      var(--anser-blue-wash);
+  --a-border:           var(--anser-mist);
+  --a-border-strong:    var(--anser-slate);
+  --a-status-answered:  var(--anser-blue);
+  --a-status-booked:    var(--anser-booked);
+  --a-status-missed:    var(--anser-missed);
+  --a-elevation: 0 1px 2px rgba(10, 10, 46, 0.06),
+                 0 8px 24px rgba(10, 10, 46, 0.06);
+  --a-focus: 0 0 0 3px rgba(26, 167, 254, 0.45);
+  --a-logo: url("logo/anser-wordmark-primary.svg");
+  --a-mark: url("logo/anser-mark-navy.svg");
+}
+
+/* Which supplied logo file shows. `Wordmark` renders the light-theme
+   file and the dark-theme file side by side and lets these pick one,
+   so the component never needs a theme selector of its own. */
+:root,
+[data-theme="light"] {
+  --anser-logo-on-light: inline-block;
+  --anser-logo-on-dark:  none;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --anser-logo-on-light: none;
+    --anser-logo-on-dark:  inline-block;
+  }
+}
+[data-theme="dark"] {
+  --anser-logo-on-light: none;
+  --anser-logo-on-dark:  inline-block;
+}
+
+/* The June names, kept as aliases for one release so no component or
+   page breaks mid-migration. Declared on every theme root, not only
+   :root, so an alias re-reads the semantic token on the element where
+   the theme is stamped (AnserProvider's div) instead of inheriting the
+   value :root resolved. Removed in the release after BO-412 to BO-415.
+   Three June names are now Samir's own and take his values:
+   --anser-radius-sm (6px), --anser-radius-lg (20px), --anser-radius-pill. */
+:root,
+[data-theme] {
+  --anser-navy:             var(--anser-ink);
+  --anser-amber:            var(--a-accent);
+
+  --anser-bg:               var(--a-surface);
+  --anser-panel:            var(--a-surface-raised);
+  --anser-panel-2:          var(--a-surface-sunken);
+  --anser-panel-3:          var(--a-surface-sunken);
+  --anser-line:             var(--a-border);
+
+  --anser-text:             var(--a-text);
+  --anser-muted:            var(--a-text-secondary);
+  --anser-faint:            var(--a-text-secondary);
+
+  --anser-amber-soft:       var(--a-accent-wash);
+  --anser-amber-strong:     var(--a-text-link);
+
+  --anser-green:            var(--a-status-booked);
+  --anser-red:              var(--a-status-missed);
+  --anser-red-soft:         color-mix(in srgb, var(--a-status-missed) 14%, transparent);
+  --anser-steel:            var(--a-text-secondary);
+
+  --anser-sidebar-bg:       var(--a-surface);
+  --anser-sidebar-card:     var(--a-surface-raised);
+  --anser-sidebar-input:    var(--a-surface-sunken);
+  --anser-sidebar-line:     var(--a-border);
+  --anser-sidebar-text:     var(--a-text-secondary);
+  --anser-sidebar-strong:   var(--a-text);
+  --anser-sidebar-faint:    var(--a-text-secondary);
+  --anser-sidebar-hover:    var(--a-surface-raised);
+
+  --anser-topbar-bg:        color-mix(in srgb, var(--a-surface) 85%, transparent);
+  --anser-neutral-btn-bg:   var(--a-text);
+  --anser-neutral-btn-text: var(--a-surface);
+
+  --anser-font-sans:        var(--anser-font);
+  --anser-font-mono:        var(--anser-font);
+
+  --anser-radius:           var(--anser-radius-md);
 }

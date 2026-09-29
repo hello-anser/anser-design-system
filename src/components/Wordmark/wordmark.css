@@ -1,30 +1,16 @@
 .anser-wordmark {
   display: inline-flex;
   align-items: center;
-  gap: 0.45em;
+  line-height: 0;
 }
-.anser-wordmark__stack {
-  display: inline-flex;
-  flex-direction: column;
-}
-.anser-wordmark__text {
-  font-family: var(--anser-font-sans);
-  font-weight: 600;
-  letter-spacing: -0.035em;
-  line-height: 1;
-  color: var(--anser-text);
-}
-.anser-wordmark__stop {
-  color: var(--anser-amber);
-}
-.anser-wordmark__sub {
-  font-family: var(--anser-font-mono);
-  font-size: 0.32em;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--anser-faint);
-  margin-top: 0.35em;
-}
-.anser-wordmark__icon {
+.anser-wordmark img {
   flex: none;
+  max-width: none;
+}
+/* One of the two supplied files shows, picked by the theme tokens. */
+.anser-wordmark__on-light {
+  display: var(--anser-logo-on-light, inline-block);
+}
+.anser-wordmark__on-dark {
+  display: var(--anser-logo-on-dark, none);
 }

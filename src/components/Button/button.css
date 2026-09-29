@@ -25,9 +25,11 @@
   filter: brightness(0.96);
 }
 
+/* Blue with ink text, in both themes (brand pack v1.1). Never white on
+   blue: 2.6:1. */
 .anser-btn--primary {
-  background: var(--anser-amber);
-  color: #1a1205;
+  background: var(--a-accent);
+  color: var(--a-text-on-accent);
 }
 .anser-btn--neutral {
   background: var(--anser-neutral-btn-bg);
