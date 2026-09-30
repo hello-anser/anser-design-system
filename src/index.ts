@@ -20,12 +20,16 @@ export { SegmentedControl } from './components/SegmentedControl/SegmentedControl
 export type { SegmentedControlProps } from './components/SegmentedControl/SegmentedControl';
 export { Select } from './components/Select/Select';
 export type { SelectProps, SelectOption } from './components/Select/Select';
+export { Slider } from './components/Slider/Slider';
+export type { SliderProps } from './components/Slider/Slider';
 export { Sidebar, SidebarSection, SidebarItem } from './components/Sidebar/Sidebar';
 export type { SidebarProps, SidebarSectionProps, SidebarItemProps } from './components/Sidebar/Sidebar';
 export { StatTile } from './components/StatTile/StatTile';
 export type { StatTileProps } from './components/StatTile/StatTile';
 export { Switch } from './components/Switch/Switch';
 export type { SwitchProps } from './components/Switch/Switch';
+export { Tag } from './components/Tag/Tag';
+export type { TagProps } from './components/Tag/Tag';
 export { Table } from './components/Table/Table';
 export type { TableProps } from './components/Table/Table';
 export { Wordmark } from './components/Wordmark/Wordmark';
